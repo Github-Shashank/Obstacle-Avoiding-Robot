@@ -1,1 +1,11 @@
-
+1 Arduino uno
+1 Usb Cable for arduino
+1 Arduino Motor Shield
+2 Lithium ion battery of 3.7 volt 
+1 Servo motor
+1 Ultrasonic sensor
+4 TT-Gear Motor
+4 Wheels
+4 Female to female jumper wire
+1 meter wire ( 50 cm minimum)
+Cardboard ( 20 cm by 10 cm)
