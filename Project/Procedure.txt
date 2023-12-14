@@ -1,1 +1,10 @@
-
+Take motor shield and place it above arduino
+Make a stand for ultrasonic sensor on servo motor
+Solder wire to all TT-Gear motor
+Now place all components on board as per diagram 
+Connect Pins servo to servo1 (pin 10 of arduino), ultrasonic sensor trigopin to A1 and echopin to A2, motor to screw terminals, power supply to screw terminal (two battery in series of 3.7 volt)
+Check connection of gnd and vcc
+Remove the Vin jumper from arduino before codding
+Now connect arduino via usb and upload code
+Now find time in seconds for robot to complete 1 round by uploading angular_speed.ino to arduino and then now set the angular speeed var named angSpd to time observed
+Update your code for var angSpd and upload it to arduino
