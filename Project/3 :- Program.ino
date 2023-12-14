@@ -7,7 +7,7 @@ const int trigo_pin = A1;
 const int echo_pin = A2;
 
 int o = 0;
-int angSpd = 5;
+int angSpd = 5;   // Pending Update
 
 Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
 
