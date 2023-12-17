@@ -33,10 +33,9 @@ void setup() {
 }
 
 void loop(){
-  angle.write(90);
-  Serial.print('Distance is ');
-  Serial.println(dist(trigo_pin, echo_pin));
-  AFMS.getMotor(1)->run(BACKWARD);  // turn right 
+  angle.write(90);                                                    // Set ultrasonic to front
+  Serial.printf("Distance is %ld\n", dist(trigo_pin, echo_pin));     // Verify distance
+  AFMS.getMotor(1)->run(BACKWARD);                                  // Calculate RPM of whole robot
   AFMS.getMotor(2)->run(BACKWARD);
   AFMS.getMotor(3)->run(FORWARD);
   AFMS.getMotor(4)->run(FORWARD);
