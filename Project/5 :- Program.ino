@@ -21,51 +21,51 @@ long dist(int trigo_pin, int echo_pin) {
 }
 
 void obstacle(int trigo_pin, int echo_pin) {
-  AFMS.getMotor(1)->run(BACKWARD);  // Break
+  AFMS.getMotor(1)->run(BACKWARD);                                               // Break
   AFMS.getMotor(2)->run(BACKWARD);
   AFMS.getMotor(3)->run(BACKWARD);
   AFMS.getMotor(4)->run(BACKWARD);
 
   delay(2);
-  AFMS.getMotor(1)->run(RELEASE);  // Stop moving
+  AFMS.getMotor(1)->run(RELEASE);                                                // Stop moving
   AFMS.getMotor(2)->run(RELEASE);
   AFMS.getMotor(3)->run(RELEASE);
   AFMS.getMotor(4)->run(RELEASE);
 
-  if (dist(trigo_pin, echo_pin) < 40) {  // Check distance is less than 100 cm
+  if (dist(trigo_pin, echo_pin) < 40) {                                          // Check distance is less than 100 cm
     angle.write(0);
     do {
       o += 1;
-      angle.write(o);  // angle of servo
+      angle.write(o);                                                            // angle of servo
       delay(15);
       if (o == 180 ){
         o = 0;
         Servo.write(90);
-        AFMS.getMotor(1)->run(BACKWARD);  // turn right 
+        AFMS.getMotor(1)->run(BACKWARD);                                         // turn right 
         AFMS.getMotor(2)->run(BACKWARD);
         AFMS.getMotor(3)->run(FORWARD);
         AFMS.getMotor(4)->run(FORWARD);
-        delay(angSpd*180/360);   // Trun 180 deg
+        delay(angSpd*180/360);                                                   // Trun 180 deg
         break;
       }
-    } while (dist(trigo_pin, echo_pin) > 50);  // Stops the servo and turn
+    } while (dist(trigo_pin, echo_pin) > 50);                                    // Stops the servo and turn
     angle.write(90);
 
     if ( o < 90){
-      AFMS.getMotor(1)->run(BACKWARD);  // turn right 
+      AFMS.getMotor(1)->run(BACKWARD);                                           // turn right 
       AFMS.getMotor(2)->run(BACKWARD);
       AFMS.getMotor(3)->run(FORWARD);
       AFMS.getMotor(4)->run(FORWARD);
     }
     else {
-      AFMS.getMotor(1)->run(FORWARD);  // turn left
+      AFMS.getMotor(1)->run(FORWARD);                                            // turn left
       AFMS.getMotor(2)->run(FORWARD);
       AFMS.getMotor(3)->run(BACKWARD);
       AFMS.getMotor(4)->run(BACKWARD);
     }
     delay(angSpd*(o+5)/360);
   }
-  AFMS.getMotor(1)->run(RELEASE);  // Stop turning
+  AFMS.getMotor(1)->run(RELEASE);                                                // Stop turning
   AFMS.getMotor(2)->run(RELEASE);
   AFMS.getMotor(3)->run(RELEASE);
   AFMS.getMotor(4)->run(RELEASE);
@@ -74,29 +74,30 @@ void obstacle(int trigo_pin, int echo_pin) {
 void setup() {
   Serial.begin(9600);
 
-  AFMS.begin();  // Motor shield initialization
+  AFMS.begin();                                                                  // Motor shield initialization
   
-  AFMS.getMotor(1)->setSpeed(255);  // Set speed for DC motors
+  AFMS.getMotor(1)->setSpeed(255);                                               // Set speed for DC motors
   AFMS.getMotor(2)->setSpeed(255);
   AFMS.getMotor(3)->setSpeed(255);
   AFMS.getMotor(4)->setSpeed(255);
   
-  angle.attach(10); // Attach the servo to pin 10
+  angle.attach(10);                                                              // Attach the servo to pin 10
   pinMode(trigo_pin, OUTPUT);
   pinMode(echo_pin, INPUT);
 }
 
 void loop() {
 
-  angle.write(90);// looking forward at 90 degree
+  angle.write(90);                                                               // looking forward at 90 degree
   
-  AFMS.getMotor(1)->run(FORWARD); // Forward
+  AFMS.getMotor(1)->run(FORWARD);                                                // Forward
   AFMS.getMotor(2)->run(FORWARD);
   AFMS.getMotor(3)->run(FORWARD);
   AFMS.getMotor(4)->run(FORWARD);
 
   delay(2);
-  obstacle(trigo_pin, echo_pin);  // Check obstacle at 100 cm ( line 22 )
-
+  
+  obstacle(trigo_pin, echo_pin);                                                 // Check obstacle at 100 cm ( line 22 )
+  
   delay(100);
 }
