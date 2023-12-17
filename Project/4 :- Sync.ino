@@ -33,9 +33,9 @@ void setup() {
 }
 
 void loop(){
-  angle.write(90);                                                    // Set ultrasonic to front
-  Serial.printf("Distance is %ld\n", dist(trigo_pin, echo_pin));     // Verify distance
-  AFMS.getMotor(1)->run(BACKWARD);                                  // Calculate SPR of whole robot ( Second Per Round )
+  angle.write(90);                                                    // Set ultrasonic to front or perpendicular to axis of wheels
+  Serial.printf("Distance is %ld\n", dist(trigo_pin, echo_pin));     // Verify distance program or update dist long function
+  AFMS.getMotor(1)->run(BACKWARD);                                  // Calculate SPR of whole robot ( Second Per Round ) and update var angSpd in Program.ino
   AFMS.getMotor(2)->run(BACKWARD);
   AFMS.getMotor(3)->run(FORWARD);
   AFMS.getMotor(4)->run(FORWARD);
