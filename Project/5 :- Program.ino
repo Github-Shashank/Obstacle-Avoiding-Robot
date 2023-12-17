@@ -43,7 +43,7 @@ void obstacle(int trigo_pin, int echo_pin) {
         AFMS.getMotor(2)->run(BACKWARD);
         AFMS.getMotor(3)->run(FORWARD);
         AFMS.getMotor(4)->run(FORWARD);
-        delay(100);   // Trun 180 deg
+        delay(angSpd*180/360);   // Trun 180 deg
         break;
       }
     } while (dist(trigo_pin, echo_pin) > 50);  // Stops the servo and turn
@@ -61,7 +61,7 @@ void obstacle(int trigo_pin, int echo_pin) {
       AFMS.getMotor(3)->run(BACKWARD);
       AFMS.getMotor(4)->run(BACKWARD);
     }
-    delay(5000);
+    delay(angSpd*o/360);
   }
   AFMS.getMotor(1)->run(RELEASE);  // Stop turning
   AFMS.getMotor(2)->run(RELEASE);
