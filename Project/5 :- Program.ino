@@ -7,7 +7,7 @@ const int trigo_pin = A1;
 const int echo_pin = A2;
 
 int o = 0;
-float angSpd = 5;   // time taken to complete one round update from Sync.ino
+float angSpd = 5;                                                                // time taken to complete one round update from Sync.ino
 
 Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
 
