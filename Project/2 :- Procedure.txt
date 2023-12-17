@@ -6,5 +6,5 @@ Connect Pins servo to servo1 (pin 10 of arduino), ultrasonic sensor trigopin to 
 Check connection of gnd and vcc
 Remove the Vin jumper from arduino before codding
 Now connect arduino via usb and upload code
-Now find time in seconds for robot to complete 1 round by uploading angular_speed.ino to arduino and then now set the angular speeed var named angSpd to time observed
+Now find time in seconds for robot to complete 1 round by uploading angular_speed.ino to arduino and then now set the angular speeed var named   4 :- Sync to time observed
 Update your code for var angSpd and upload it to arduino
